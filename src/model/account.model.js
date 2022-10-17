@@ -27,8 +27,8 @@ const userSchema = new mongoose.Schema(
           return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(v);
         },
         message: "Please enter a valid password",
-        required: [true, "Password required"],
       },
+      required: [true, "Password required"],
     },
     mobile: {
       type: String,
@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema(
         },
         message: "{VALUE} is not a valid 10 digit number!",
       },
+      required: [true, "Mobile Number required"],
     },
   },
   {
