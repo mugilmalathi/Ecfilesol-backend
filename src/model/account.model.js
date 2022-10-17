@@ -25,32 +25,25 @@ const userSchema = new mongoose.Schema(
       type: String,
       validate: {
         validator: function (v) {
-          return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(v);
+          return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+            v
+          );
         },
         message: "Please enter a valid password",
         required: [true, "Password required"],
+      },
     },
-},
     mobile: {
       type: String,
       trim: true,
-      validate: [
-            {
-            validator: function (v) {
-            return /^[0-9]{10}/.test(v);
-            },
-            message: "{VALUE} is not a valid 10 digit number!",
-            },
-            {
-            validator: function (v) {
-            return /^{6}[0-9]{10}/.test(v);
-            },
-            message: "{VALUE} is not a valid 10 digit number!",
-            }
-      ]
+      validate: {
+        validator: function (v) {
+          return /^[0-9]{10}/.test(v);
+        },
+        message: "{VALUE} is not a valid 10 digit number!",
+      },
     },
-  
-},
+  },
   {
     versionKey: false,
     timestamps: true,
