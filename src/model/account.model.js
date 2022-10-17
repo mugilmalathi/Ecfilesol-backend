@@ -30,6 +30,7 @@ const userSchema = new mongoose.Schema(
         message: "Please enter a valid password",
         required: [true, "Password required"],
     },
+},
     mobile: {
       type: String,
       trim: true,
@@ -48,7 +49,8 @@ const userSchema = new mongoose.Schema(
             }
       ]
     },
-  },
+  
+},
   {
     versionKey: false,
     timestamps: true,
