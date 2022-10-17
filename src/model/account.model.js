@@ -5,8 +5,7 @@ const userSchema = new mongoose.Schema(
     id: { type: String },
     name: {
       type: String,
-      required: true,
-      validate: [validators.notEmpty, "Name is empty"],
+      required: [true, "Name required"],
     },
     email: {
       type: String,
@@ -25,9 +24,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       validate: {
         validator: function (v) {
-          return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
-            v
-          );
+          return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(v);
         },
         message: "Please enter a valid password",
         required: [true, "Password required"],
