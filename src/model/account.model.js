@@ -17,7 +17,19 @@ const userSchema = new mongoose.Schema({
         required: [true, "Email required"]
     },
     // password : {type: String, required: true},
-    // mobile:{type:Number}
+    mobile:{
+        phone: {
+            type: String,
+            trim: true,
+            validate: {
+              validator: function (v) {
+                return /^[6-9]{10}/.test(v);
+              },
+              message: '{VALUE} is not a valid 10 digit number!'
+            }
+        
+          },
+    }
 
 },{
     versionKey: false,
