@@ -16,7 +16,7 @@ router.get("/accAuth", async(req, res) => {
     try{
         const useraccount = await User.find().lean().exec();
         console.log(useraccount)
-        var email = req.query.email;
+        var email = req.query.useraccount.email;
         if(emailValidator.validate(email)){
             res.send("Email is Valid")
         }else{
