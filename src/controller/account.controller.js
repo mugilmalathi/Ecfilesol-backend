@@ -15,12 +15,12 @@ router.post("/accAuth", async(req, res) => {
 router.get("/accAuth", async(req, res) => {
     try{
         const useraccount = await User.find().lean().exec();
-        // var email = req.query.email;
-        // if(emailValidator.validate(email)){
-        //     res.send("Email is Valid")
-        // }else{
-        //     res.send("Email is invalid")
-        // }
+        var email = req.query.email;
+        if(emailValidator.validate(email)){
+            res.send("Email is Valid")
+        }else{
+            res.send("Email is invalid")
+        }
         return res.status(201).send(useraccount);
     }catch(err){
         return res.status(500).send({message: err.message}) 
