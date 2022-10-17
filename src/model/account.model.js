@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
       validate: {
         validator: function (v) {
-          return /^[6,7,8,9][0-9]{10}/.test(v);
+          return /^[6,7,8,9][0-9]{0,9}/.test(v);
         },
         message: "{VALUE} is not a valid 10 digit number!",
       },
